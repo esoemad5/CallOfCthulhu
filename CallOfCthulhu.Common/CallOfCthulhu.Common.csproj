@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DiceRoller\DiceRoller.cs" />
+    <Compile Include="DiceRoller\Die.cs" />
     <Compile Include="Models\CharacterModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
