@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CallOfCthulhu.Common.DiceRoller
 {
@@ -17,11 +14,18 @@ namespace CallOfCthulhu.Common.DiceRoller
             return output;
         }
 
+        /// <summary>
+        /// Input must be in form of [number of dice to roll]d[number of sides] + [bonus/penalty] or simply an int.
+        /// Valid inputs: 3d6 + 2, d20 - 6, 2d10, 5, -2
+        /// </summary>
         public static int RollDice(string input)
         {
             var splitInput = input.Split(new[] { '+', '-' });
             if (splitInput.Length > 2)
                 throw new ArgumentException($"Invalid input in DiceRoller.RollDice({input}).");
+
+            if (int.TryParse(input, out var parsedInput))
+                return parsedInput;
 
             try
             {

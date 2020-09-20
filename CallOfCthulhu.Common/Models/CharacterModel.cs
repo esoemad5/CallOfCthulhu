@@ -1,19 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CallOfCthulhu.Common
 {
     public class CharacterModel
     {
-        public CharacterDetails CharacterDetails { get; set; }
+        public CharacterDetails CharacterDetails { get; }
         public Characteristics Characteristics { get; set; }
         public VariableStats VariableStats { get; set; }
         public InvestigatorSkills Skills { get; set; }
         public Weapons Weapons { get; set; }
         public CombatStats CombatStats { get; set; }
+
+        public CharacterModel()
+        {
+            CharacterDetails = new CharacterDetails();
+            Characteristics = new Characteristics();
+            VariableStats = null;
+            Skills = null;
+            Weapons = new Weapons();
+            CombatStats = null;
+        }
     }
 
 
@@ -61,8 +68,16 @@ namespace CallOfCthulhu.Common
     {
         public HitPoints HitPoints { get; set; }
         public Sanity Sanity { get; set; }
-        public Luck Luck { get; set; }
         public MagicPoints MagicPoints { get; set; }
+        public Luck Luck { get; set; }
+
+        public VariableStats(int constitution, int size, int willpower, int age)
+        {
+            HitPoints = new HitPoints(constitution, size);
+            Sanity = new Sanity(willpower);
+            MagicPoints = new MagicPoints(willpower);
+            Luck = new Luck(age);
+        }
     }
     public class HitPoints
     {
@@ -94,16 +109,6 @@ namespace CallOfCthulhu.Common
             IsIndefinitelyInsane = false;
         }
     }
-    public class Luck
-    {
-        public int Maximum { get; set; }
-        public int Current { get; set; }
-
-        public Luck(int age)
-        {
-            //TODO: write a dice roller
-        }
-    }
     public class MagicPoints
     {
         public int Maximum { get; set; }
@@ -114,6 +119,24 @@ namespace CallOfCthulhu.Common
         {
             Maximum = willpower / 5;
             Current = willpower / 5;
+        }
+    }
+    public class Luck
+    {
+        public int Maximum { get; set; }
+        public int Current { get; set; }
+
+        public Luck(int age)
+        {
+            var firstRoll = DiceRoller.DiceRoller.RollDice("3d6") * 5;
+            var secondRoll = DiceRoller.DiceRoller.RollDice("3d6") * 5;
+
+            var result = age >= 20
+                ? firstRoll
+                : Math.Max(firstRoll, secondRoll);
+
+            Maximum = result;
+            Current = result;
         }
     }
 
@@ -367,15 +390,35 @@ namespace CallOfCthulhu.Common
         public int ScoreExtreme => Score / 5;
     }
 
-    public class Weapons
+    public class Weapons : List<Weapon>
+    {
+        public Weapons()
+        {
+            Add(new Weapon
+            {
+                Name = "Unarmed",
+                Damage = "1d3",
+                AddDamageBonusToDamage = true,
+                Range = 0,
+                Ammo = null,
+                Malfunction = 100
+            });
+        }
+    }
+    public class Weapon
     {
         public string Name { get; set; }
         public int Regular { get; set; }
         public int Hard { get; set; }
         public int Extreme { get; set; }
-        public Object Damage { get; set; }
-        public Object Range { get; set; }
-        public Object Attacks { get; set; }
+        public string Damage { get; set; }
+        public bool AddDamageBonusToDamage { get; set; }
+
+        //TODO: Figure out units
+        public int Range { get; set; }
+
+        //TODO: Figure this out
+        public Object AttacksPerRound { get; set; }
         public int? Ammo { get; set; }
         /// <summary>
         /// The chance to not malfunction
@@ -385,9 +428,33 @@ namespace CallOfCthulhu.Common
 
     public class CombatStats 
     {
-        public int DamageBonus { get; set; }
+        public string DamageBonusDieRoll { get; set; }
         public int Build { get; set; }
         //Note: Dodge comes from Skills
+
+        public CombatStats(int strength, int size)
+        {
+            //TODO: More build ranges in rulebook
+            var sum = strength + size;
+            switch (sum)
+            {
+                case int n when n >= 65 && n < 85:
+                    Build = -1;
+                    DamageBonusDieRoll = "-1";
+                    break;
+                case int n when n >= 85 && n < 125:
+                    Build = 0;
+                    DamageBonusDieRoll = "0";
+                    break;
+                case int n when n >= 125 && n < 165:
+                    Build = 1;
+                    DamageBonusDieRoll = "1d4";
+                    break;
+                default:
+                    throw new ArgumentException($"Sum is out of range. Consult rulebook and update code for CharacterModel.CombatStats constructor.");
+            }
+
+        }
     }
 
 
