@@ -1,0 +1,26 @@
+<UserControl x:Class="CallOfCthulhu.CharacterManager.Views.MainPageView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:viewModels="clr-namespace:CallOfCthulhu.CharacterManager.ViewModels"
+             xmlns:mvvm="http://prismlibrary.com/"
+             xmlns:app="clr-namespace:CallOfCthulhu.CharacterManager"
+             mc:Ignorable="d"
+             mvvm:ViewModelLocator.AutoWireViewModel="True"
+             d:DataContext="{d:DesignInstance Type=viewModels:MainPageViewModel, IsDesignTimeCreatable=False}"
+             d:DesignHeight="300" d:DesignWidth="300"
+             Name="Root">
+    <DockPanel>
+        <Label Content="Hola Mundo!" DockPanel.Dock="Top" HorizontalAlignment="Center"/>
+        
+        <Canvas Height="24" Width="24" DockPanel.Dock="Top">
+            <Path Data="{StaticResource ChevronDownGeometry}" Fill="#FF002776" />
+        </Canvas>
+        
+        <Button Command="{Binding NavigateCommand}"
+                CommandParameter="{x:Static app:Pages.Second}"
+                Content="Next Page"
+                Margin="20,0,20,20"/>
+    </DockPanel>
+</UserControl>

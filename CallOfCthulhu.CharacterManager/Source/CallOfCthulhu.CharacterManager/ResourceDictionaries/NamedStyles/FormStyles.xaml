@@ -1,0 +1,13 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <Thickness x:Key="FormLabelMargin">0,0,0,4</Thickness>
+    <Thickness x:Key="FormEntryMargin">0,0,0,16</Thickness>
+
+    <Style x:Key="FormFieldLabelStyle" TargetType="Label" BasedOn="{StaticResource {x:Type Label}}">
+        <Setter Property="FontSize" Value="13.33"/>
+        <Setter Property="Foreground" Value="Pink"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="Margin" Value="{StaticResource FormLabelMargin}"/>
+    </Style>
+</ResourceDictionary>

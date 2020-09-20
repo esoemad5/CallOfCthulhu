@@ -1,0 +1,39 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2042
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CallOfCthulhu.CharacterManager", "CallOfCthulhu.CharacterManager\CallOfCthulhu.CharacterManager.csproj", "{0D1C0FE2-0EAA-4A71-BBAC-E82B992D93CA}"
+EndProject
+Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "CallOfCthulhu.CharacterManager.Install", "CallOfCthulhu.CharacterManager.Install\CallOfCthulhu.CharacterManager.Install.wixproj", "{E8BB1BB4-CA6E-4375-A261-75F68EE9F08C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0D1C0FE2-0EAA-4A71-BBAC-E82B992D93CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D1C0FE2-0EAA-4A71-BBAC-E82B992D93CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D1C0FE2-0EAA-4A71-BBAC-E82B992D93CA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{0D1C0FE2-0EAA-4A71-BBAC-E82B992D93CA}.Debug|x86.Build.0 = Debug|Any CPU
+		{0D1C0FE2-0EAA-4A71-BBAC-E82B992D93CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D1C0FE2-0EAA-4A71-BBAC-E82B992D93CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D1C0FE2-0EAA-4A71-BBAC-E82B992D93CA}.Release|x86.ActiveCfg = Release|Any CPU
+		{0D1C0FE2-0EAA-4A71-BBAC-E82B992D93CA}.Release|x86.Build.0 = Release|Any CPU
+		{E8BB1BB4-CA6E-4375-A261-75F68EE9F08C}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{E8BB1BB4-CA6E-4375-A261-75F68EE9F08C}.Debug|x86.ActiveCfg = Debug|x86
+		{E8BB1BB4-CA6E-4375-A261-75F68EE9F08C}.Debug|x86.Build.0 = Debug|x86
+		{E8BB1BB4-CA6E-4375-A261-75F68EE9F08C}.Release|Any CPU.ActiveCfg = Release|x86
+		{E8BB1BB4-CA6E-4375-A261-75F68EE9F08C}.Release|x86.ActiveCfg = Release|x86
+		{E8BB1BB4-CA6E-4375-A261-75F68EE9F08C}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D3E86A5F-2AEF-4EFC-8716-46A7CB9BC84F}
+	EndGlobalSection
+EndGlobal

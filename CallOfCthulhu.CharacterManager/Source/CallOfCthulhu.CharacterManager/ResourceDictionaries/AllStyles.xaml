@@ -1,0 +1,15 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="DefaultStyles/CheckComboBox.xaml"/>
+        
+        <ResourceDictionary Source="NamedStyles/SettingsButtonStyle.xaml"/>
+        <ResourceDictionary Source="NamedStyles/BackButtonStyle.xaml"/>
+        <ResourceDictionary Source="NamedStyles/HomeButtonStyle.xaml"/>
+        <ResourceDictionary Source="NamedStyles/DataGridStyle.xaml"/>
+        <ResourceDictionary Source="NamedStyles/WatermarkLabelStyle.xaml"/>
+        <ResourceDictionary Source="NamedStyles/FormStyles.xaml"/>
+        <ResourceDictionary Source="NamedStyles/CloseDialogXButtonStyle.xaml"/>
+        
+        <ResourceDictionary Source="VectorImages/MaterialDesignIcons.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>

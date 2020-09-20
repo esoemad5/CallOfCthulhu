@@ -1,0 +1,38 @@
+<UserControl x:Class="CallOfCthulhu.CharacterManager.ModalMessages.ModalOverlayView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CallOfCthulhu.CharacterManager.ModalMessages"
+             mc:Ignorable="d" 
+             d:DataContext="{d:DesignInstance Type=local:ModalDialogViewModel, IsDesignTimeCreatable=False}"
+             HorizontalAlignment="{Binding Path=Content.DialogHorizontalAlignment}"
+             VerticalAlignment="{Binding Path=Content.DialogVerticalAlignment}"
+             Margin="16"
+             Height="Auto"
+             Width="Auto"
+             Background="White">
+    <Border BorderThickness="2" BorderBrush="SlateGray">
+        <DockPanel>
+            <Grid DockPanel.Dock="Top" Background="Green" Height="28">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Margin="6,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14.667"
+                           Foreground="White"
+                           Text="{Binding Content.Title}" />
+
+                <Button Grid.Column="1"
+                        Margin="0,0,8,0"
+                        Foreground="White"
+                        Style="{StaticResource CloseDialogXButtonStyle}"
+                        VerticalAlignment="Center"
+                        Command="{Binding Path=CloseCommand}"
+                        IsTabStop="False"/>
+            </Grid>
+
+            <ContentControl x:Name="DialogContent" Content="{Binding Path=Content}" IsTabStop="False"/>
+        </DockPanel>
+    </Border>
+</UserControl>

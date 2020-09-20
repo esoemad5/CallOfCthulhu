@@ -1,0 +1,43 @@
+<Window x:Class="CallOfCthulhu.CharacterManager.Shell"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CallOfCthulhu.CharacterManager"
+        xmlns:regions="http://prismlibrary.com/"
+        mc:Ignorable="d"
+        Icon="AppIcon.ico"
+        WindowStartupLocation="CenterScreen"
+        Title="CallOfCthulhu.CharacterManager" 
+        Height="600" Width="800"
+        Style="{DynamicResource MainWindowStyle}">
+    <Grid Background="White">
+        <ContentControl regions:RegionManager.RegionName="{x:Static local:Regions.MainContent}"
+                        IsTabStop="False"
+                        x:Name="MainContent">
+            <ContentControl.Style>
+                <Style TargetType="ContentControl">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Path=Visibility, ElementName=Overlay}" Value="Visible">
+                            <Setter Property="IsEnabled" Value="False"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </ContentControl.Style>
+        </ContentControl>
+
+        <Border Background="Black" Opacity="0.4" Visibility="{Binding Path=Visibility, ElementName=Overlay}" />
+        <ContentControl x:Name="Overlay" regions:RegionManager.RegionName="{x:Static local:Regions.OverlayDialog}"
+                        IsTabStop="False">
+            <ContentControl.Style>
+                <Style TargetType="ContentControl">
+                    <Style.Triggers>
+                        <Trigger Property="Content" Value="{x:Null}">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </ContentControl.Style>
+        </ContentControl>
+    </Grid>
+</Window>

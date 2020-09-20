@@ -1,0 +1,11 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style x:Key="WatermarkLabelStyle"
+           TargetType="Label">
+        <Setter Property="Background" Value="Pink"/>
+        <Setter Property="Foreground" Value="Pink"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="FontSize" Value="40"/>
+    </Style>
+</ResourceDictionary>
