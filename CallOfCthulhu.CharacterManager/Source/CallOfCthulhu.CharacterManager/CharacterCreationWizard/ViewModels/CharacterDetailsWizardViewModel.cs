@@ -11,20 +11,23 @@ namespace CallOfCthulhu.CharacterManager.CharacterCreationWizard.ViewModels
 {
     public class CharacterDetailsWizardViewModel : BindableBase
     {
+        private CharacterModel _characterModel;
+
         public DelegateCommand GoToNextPageCommand { get; }
 
         public CharacterDetailsWizardViewModel()
         {
-            CharacterModel = new CharacterModel();
+            _characterModel = new CharacterModel();
             GoToNextPageCommand = new DelegateCommand(GoToNextPage);
         }
 
-        private CharacterModel _characterModel;
-        public CharacterModel CharacterModel
-        {
-            get => _characterModel;
-            set => SetProperty(ref _characterModel, value);
-        }
+        //private List<PropertyWrapper> _properties;
+        //public List<PropertyWrapper> Properties
+        //{
+        //    get => _properties;
+        //    set => SetProperty(ref _properties, value);
+        //}
+        
 
         private void GoToNextPage()
         {

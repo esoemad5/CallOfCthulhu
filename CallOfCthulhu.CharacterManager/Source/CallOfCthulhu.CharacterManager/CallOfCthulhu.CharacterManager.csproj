@@ -96,10 +96,6 @@
     <Compile Include="CharacterCreationWizard\Views\CharacterDetailsWizardView.xaml.cs">
       <DependentUpon>CharacterDetailsWizardView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\FormTextBox.xaml.cs">
-      <DependentUpon>FormTextBox.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\PropertyWrapper.cs" />
     <Compile Include="Framework\Navigation\INavigationService.cs" />
     <Compile Include="Framework\Navigation\NavigationService.cs" />
     <Compile Include="ModalMessages\ConfirmationDialogView.xaml.cs">
@@ -131,10 +127,6 @@
       <DependentUpon>SecondPageView.xaml</DependentUpon>
     </Compile>
     <Page Include="CharacterCreationWizard\Views\CharacterDetailsWizardView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Controls\FormTextBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
