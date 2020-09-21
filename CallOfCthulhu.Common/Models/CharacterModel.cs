@@ -35,6 +35,21 @@ namespace CallOfCthulhu.Common
         public string Sex { get; set; }
         public string Residence { get; set; }
         public string Birthplace { get; set; }
+
+        public IEnumerable<string> GetFriendlyPropertyNames()
+        {
+            return new List<string>
+            {
+                "Campaign Setting",
+                "Name",
+                "Player",
+                "Occupation",
+                "Age",
+                "Sex",
+                "Residence",
+                "Birthplace"
+            };
+        }
     }
 
     public class Characteristics 

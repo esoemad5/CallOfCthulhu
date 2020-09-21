@@ -5,41 +5,55 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:mvvm="http://prismlibrary.com/"
              xmlns:local="clr-namespace:CallOfCthulhu.CharacterManager.CharacterCreationWizard.Views"
-             xmlns:controls="clr-namespace:CallOfCthulhu.CharacterManager.Controls"
+             xmlns:viewModel="clr-namespace:CallOfCthulhu.CharacterManager.ViewModels"
              mvvm:ViewModelLocator.AutoWireViewModel="True"
              d:DataContext="{d:DesignInstance Type=viewModels:CharacterDetailsWizardViewModel, IsDesignTimeCreatable=False}"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <UserControl.Resources>
-        <Style x:Key="LabelStyle" TargetType="Label">
-            <Setter Property="HorizontalAlignment" Value="Right"/>
-            <Setter Property="VerticalAlignment" Value="Center"/>
-        </Style>
+    <Grid>
+        <ListView ItemsSource="{Binding Properties}"
+                  KeyboardNavigation.TabNavigation="Continue"
+                  Margin="5">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="{x:Type ListViewItem}">
+                    <Setter Property="Background" Value="Transparent" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                <ContentPresenter />
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="Margin" Value="5"/>
+                    <Setter Property="KeyboardNavigation.IsTabStop" Value="False"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="320"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label HorizontalAlignment="Right"
+                               FontWeight="Bold"
+                               FontSize="18"
+                               Grid.Column="0"
+                               Content="{Binding DisplayName}"/>
+                        <TextBox Grid.Column="1"
+                                 FontSize="18"
+                                 Text="{Binding Value, UpdateSourceTrigger=PropertyChanged}"
+                                 Width="420"
+                                 />
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            
+        </ListView>
 
-        <Style x:Key="TextBoxStyle" TargetType="TextBox">
-            <Setter Property="HorizontalAlignment" Value="Left"/>
-            <Setter Property="VerticalAlignment" Value="Center"/>
-        </Style>
-    </UserControl.Resources>
-    <DockPanel>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
-            </Grid.ColumnDefinitions>
 
-            <controls:FormTextBox LabelText="asdf"
-                                  TextBoxText="{Binding CharacterModel.CharacterDetails.CampaignSetting}"/>
-        </Grid>
-    </DockPanel>
+
+
+
+    </Grid>
 </UserControl>

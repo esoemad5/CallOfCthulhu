@@ -109,6 +109,7 @@
     </Compile>
     <Compile Include="ModalMessages\ModalService.cs" />
     <Compile Include="ModalMessages\Module.cs" />
+    <Compile Include="Models\AbstractPropertyBase.cs" />
     <Compile Include="Pages.cs" />
     <Compile Include="Regions.cs" />
     <Compile Include="Shell.xaml.cs">
