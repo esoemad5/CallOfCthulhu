@@ -6,5 +6,6 @@ namespace CallOfCthulhu.CharacterManager
     {
         public const string Main = nameof(MainPageView);
         public const string Second = nameof(SecondPageView);
+        public const string CharacterDetailsWizardView = nameof(CharacterDetailsWizardView);
     }
 }

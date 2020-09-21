@@ -19,7 +19,7 @@
         </Canvas>
         
         <Button Command="{Binding NavigateCommand}"
-                CommandParameter="{x:Static app:Pages.Second}"
+                CommandParameter="{x:Static app:Pages.CharacterDetailsWizardView}"
                 Content="Next Page"
                 Margin="20,0,20,20"/>
     </DockPanel>

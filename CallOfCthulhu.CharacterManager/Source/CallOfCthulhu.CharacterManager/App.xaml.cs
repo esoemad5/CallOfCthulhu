@@ -9,6 +9,8 @@ using Prism.Regions;
 using CallOfCthulhu.CharacterManager.Framework.Navigation;
 using CallOfCthulhu.CharacterManager.ViewModels;
 using CallOfCthulhu.CharacterManager.Views;
+using CallOfCthulhu.CharacterManager.CharacterCreationWizard.ViewModels;
+using CallOfCthulhu.CharacterManager.CharacterCreationWizard.Views;
 
 namespace CallOfCthulhu.CharacterManager
 {
@@ -37,7 +39,6 @@ namespace CallOfCthulhu.CharacterManager
             get
             {
                 var programData = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
-                //TODO Change below
                 return Path.Combine(programData, @"esoemad5sSideProjects\CallOfCthulhu.CharacterManager");
             }
         }
@@ -76,6 +77,8 @@ namespace CallOfCthulhu.CharacterManager
         {
             containerRegistry.RegisterForNavigation<MainPageView, MainPageViewModel>(Pages.Main);
             containerRegistry.RegisterForNavigation<SecondPageView, SecondPageViewModel>(Pages.Second);
+
+            containerRegistry.RegisterForNavigation<CharacterDetailsWizardView, CharacterDetailsWizardViewModel>(Pages.CharacterDetailsWizardView);
         }
 
         protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
