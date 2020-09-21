@@ -27,6 +27,7 @@ namespace CallOfCthulhu.CharacterManager.CharacterCreationWizard.ViewModels
                     DisplayName = property,
                     Value = string.Empty
                 });
+            //All these properties have an event handler set up for notification stuff. Idk if its needed.
             GoToNextPageCommand = new DelegateCommand(GoToNextPage);
         }
 
@@ -39,7 +40,19 @@ namespace CallOfCthulhu.CharacterManager.CharacterCreationWizard.ViewModels
 
         private void GoToNextPage()
         {
+            var propertiesDictionary = Properties.ToDictionary(p => p.DisplayName, q => q.Value);
+            if (!int.TryParse(propertiesDictionary["Age"], out var parsedAge))
+                throw new Exception(); //TODO: Handle validation errors better.
+            _characterModel.CharacterDetails.Age = parsedAge;
+            _characterModel.CharacterDetails.Birthplace = propertiesDictionary["Birthplace"];
+            _characterModel.CharacterDetails.CampaignSetting = propertiesDictionary["Campaign Setting"];
+            _characterModel.CharacterDetails.Name = propertiesDictionary["Name"];
+            _characterModel.CharacterDetails.Occupation = propertiesDictionary["Occupation"];
+            _characterModel.CharacterDetails.Player = propertiesDictionary["Player"];
+            _characterModel.CharacterDetails.Residence = propertiesDictionary["Residence"];
+            _characterModel.CharacterDetails.Sex = propertiesDictionary["Sex"];
 
+            //Navigate to next step and pass model as a parameter
         }
     }
 }
