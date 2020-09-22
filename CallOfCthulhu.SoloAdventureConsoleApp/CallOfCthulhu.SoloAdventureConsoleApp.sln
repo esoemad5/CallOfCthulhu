@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29728.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CallOfCthulhu.SoloAdventureConsoleApp", "CallOfCthulhu.SoloAdventureConsoleApp.csproj", "{B29E2D82-7F21-4931-B58A-E699455F648E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CallOfCthulhu.SoloAdventures", "..\CallOfCthulhu.SoloAdventures\CallOfCthulhu.SoloAdventures.csproj", "{D00C9378-548B-44A4-A9FF-D0C3205460E2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B29E2D82-7F21-4931-B58A-E699455F648E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B29E2D82-7F21-4931-B58A-E699455F648E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B29E2D82-7F21-4931-B58A-E699455F648E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B29E2D82-7F21-4931-B58A-E699455F648E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D00C9378-548B-44A4-A9FF-D0C3205460E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D00C9378-548B-44A4-A9FF-D0C3205460E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D00C9378-548B-44A4-A9FF-D0C3205460E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D00C9378-548B-44A4-A9FF-D0C3205460E2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E54E52C9-93F3-4A9C-BBF9-3ED20D6D7514}
+	EndGlobalSection
+EndGlobal
