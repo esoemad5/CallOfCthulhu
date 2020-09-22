@@ -277,13 +277,16 @@ namespace CallOfCthulhu.SoloAdventures.Adventures
             "\nAfter another few moments, May glances round at you. Then\nyou hear the soft scratch of a match being lit. She applies it to\nsomething in the grate and tiptoes from the room.\nOnce you hear her bedroom door, you creep to the grate.\nA small mound of black powder, no bigger than a thimble, is\nburning there. It gives off heady fumes.\nYou may make a Hard Science (Botany) roll. If you succeed,\ngo to 76.\nOtherwise, you may extinguish the powder and sleep: go to 58; or\nstay awake through the night: go to 52; or you may relax and breathe\nthe fumes out of curiosity: go to 26.",
             "\nYou drag your cases between the sullen buildings. You feel\nsurprisingly weary, considering you have spent all day sitting\ndown. Silas’s directions lead you to a modest dwelling with a\nslate roof. A nameplate reads LEDBETTER, and underneath,\na sign in neat copperplate reads, LODGING ROOM. The lane\naround you is gloomy, but a lamp flickers in the window.\nA breeze chills your face. You’re not about to begin your new\nlife by sleeping in the street. You rap on the weather-beaten door.\nGo to 4.",
             "\nAfter a grueling exchange, you land a decisive blow and the\nman’s legs buckle. He slams to the floor, blood dripping down\nhis apron. His eyes flicker.\nYou may check-mark the small box beside the Fighting (Brawl)\nskill.\nTo interrogate the man about the embalmed bodies, go to 20.\nTo leave him here and investigate elsewhere, go to 120.",
-            "\nEven as the beasts fan out around you, and black fear rises in\nyour chest, you sense something is wrong here. The pack makes\nirritable, awkward movements; not the patient, predatory\napproach you might expect. They draw closer, circling you. You\nhear the rasp of their throats, smell their thick musky scent—\nThey burst into flame.\nYou gape, fumes filling your mouth and nostrils, as the\ncreatures ignite. Eyes wild, their fur blazes, waves of red-tinged\nfire dripping from their slavering jaws. They howl, a woeful\ncacophony, and one springs at you with insane, burning eyes.\nYou stagger back, gulping the choking vapors, and you fall—\nLose 1 Sanity point. Go to 13."
+            "\nEven as the beasts fan out around you, and black fear rises in\nyour chest, you sense something is wrong here. The pack makes\nirritable, awkward movements; not the patient, predatory\napproach you might expect. They draw closer, circling you. You\nhear the rasp of their throats, smell their thick musky scent—\nThey burst into flame.\nYou gape, fumes filling your mouth and nostrils, as the\ncreatures ignite. Eyes wild, their fur blazes, waves of red-tinged\nfire dripping from their slavering jaws. They howl, a woeful\ncacophony, and one springs at you with insane, burning eyes.\nYou stagger back, gulping the choking vapors, and you fall—\nLose 1 Sanity point. Go to 13.",
+            "\nThe swirling tongues of fire around you stop in mid-air. The\npeople around the Beacon freeze, their black painted faces\nbleached and stripped, as a second sun opens in the air above\nEmberhead. In an instant, the people, the village, the hill, all\nare consumed; incinerated by impossible proximity to sheer\ncombustion, the essence of fire.\nThough your body is bound to the Beacon, your being is freed.\nAs a spark you race into space, catapulted through the vastness of\nthe void. The stars burn past you with incomprehensible velocity.\nAnd then you are home.\nForever you will dwell here, at Fomalhaut; where the flames\nripple and flow through immense spaces to the rhythms of\nthe universe; where planets themselves move and tilt through\nunutterable wheels of fire, bound to the clockwork chaos of the\nLiving Flame.\nAnd among the flames you will dance.\nYou have single-handedly destroyed a section of New Hampshire\nabout sixteen miles in diameter! This also killed you.\nThe End."
         };
 
         /// <summary>
         /// Nobody needs to call this. Make if public if you need to run it once in Main.
         /// The input text file was obtained by slecting all the text in the pdf and copying it to a text file.
         /// I took out everything up to and including the line that said 'INTRODUCTION'
+        /// 
+        /// Looks like it misses the last scene. Need to fix. Added it manually for now.
         /// </summary>
         private static void ParseAloneAgainstTheFlames()
         {
@@ -306,6 +309,11 @@ namespace CallOfCthulhu.SoloAdventures.Adventures
                 if (inText)
                     currentScene += $"\\n{line}";
             }
+
+            /*
+             * Probably have to add this line to fix bug that skips last scene:
+             * parsedLines.Add(currentScene);
+             */
 
             var crazyString = "\"";
             foreach (var line in parsedLines)
